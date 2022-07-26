@@ -9,11 +9,13 @@ export class TodosService {
   list: List[] = [];
 
   constructor() {
-
     const list1 = new List('1');
     const list2 = new List('2');
-
     this.list.push( list1, list2 );
+  }
 
+  createList( title: string ){
+    const newList = new List(title);
+    this.list.push( newList );
   }
 }
