@@ -9,13 +9,24 @@ export class TodosService {
   list: List[] = [];
 
   constructor() {
-    const list1 = new List('1');
-    const list2 = new List('2');
-    this.list.push( list1, list2 );
+    this.loadStorage();
   }
 
   createList( title: string ){
     const newList = new List(title);
     this.list.push( newList );
+    this.saveStorage();
+  }
+
+  saveStorage() {
+    localStorage.setItem('data', JSON.stringify(this.list) );
+  }
+
+  loadStorage(){
+    if (localStorage.getItem('data')){
+      this.list = JSON.parse(localStorage.getItem('data'));
+    } else {
+      this.list = [];
+    }
   }
 }
