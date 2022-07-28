@@ -30,5 +30,19 @@ export class AddPage implements OnInit {
     this.itemName = '';
     this.todosService.saveStorage();
   }
+  changeCheck( item: ListItem ){
+    const pendientes = this.list.items
+                            .filter( itemData => !itemData.complete )
+                            .length;
+if ( pendientes === 0 ){
+  this.list.doneDay = new Date();
+  this.list.done = true;
+} else {
+  this.list.doneDay = null;
+  this.list.done = false;
+}
+    this.todosService.saveStorage();
+    console.log(this.todosService.list);
+  }
 
 }
