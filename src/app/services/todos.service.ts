@@ -16,6 +16,13 @@ export class TodosService {
     const newList = new List(title);
     this.list.push( newList );
     this.saveStorage();
+
+    return newList.id;
+  }
+
+  getList( id: string |  number ) {
+    id = Number(id);
+    return this.list.find( listData => listData.id === id );
   }
 
   saveStorage() {

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ListItem } from 'src/app/models/list-item.model';
+import { List } from 'src/app/models/list.model';
+import { TodosService } from 'src/app/services/todos.service';
 
 @Component({
   selector: 'app-add',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPage implements OnInit {
 
-  constructor() { }
-
+  list: List;
+  itemName = '';
+  constructor( private todosService: TodosService,
+               private router: ActivatedRoute) {
+      const listId = this.router.snapshot.paramMap.get('listId');
+      this.list = this.todosService.getList( listId );
+  }
   ngOnInit() {
+  }
+
+  addItem(){
+    if ( this.itemName.length === 0 ){
+      return;
+    }
+    const newItem = new ListItem( this.itemName );
+    this.list.items.push( newItem );
+    this.itemName = '';
+    this.todosService.saveStorage();
   }
 
 }
