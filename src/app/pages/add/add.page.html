@@ -20,18 +20,25 @@
     </ion-item>
   </ion-list>
 
+  
   <ion-list>
     <ion-list-header color="dark">
       <ion-label>tasks to do</ion-label>
     </ion-list-header>
-    <ion-item color="dark"
-              *ngFor="let item of list.items"
-              class="animated fadeInDown">
+    <ion-item-sliding *ngFor="let item of list.items; let i = index"
+                      class="animated fadeInDown">
+      <ion-item color="dark">
       <ion-checkbox color="danger"
-                    slot="start"
-                    [(ngModel)]="item.complete"
-                    (ionChange)="changeCheck( item )"></ion-checkbox>
+      slot="start"
+      [(ngModel)]="item.complete"
+      (ionChange)="changeCheck( item )"></ion-checkbox>
       <ion-label>{{ item.desc }}</ion-label> 
     </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="delete( i )" color="danger">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+  </ion-item-sliding>
   </ion-list>
 </ion-content>

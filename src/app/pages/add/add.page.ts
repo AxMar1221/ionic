@@ -44,5 +44,9 @@ if ( pendientes === 0 ){
     this.todosService.saveStorage();
     console.log(this.todosService.list);
   }
+  delete( i: number ){
+    this.list.items.splice( i, 1 );
+    this.todosService.saveStorage();
+  }
 
 }
