@@ -1,12 +1,19 @@
 
 <ion-list color="dark">
-  <ion-item *ngFor="let lists of todosService.list; let i = index"
-            class="animated fadeInDown"
-            color="dark"
-            (click)="selectedList( lists )">
+  <ion-item-sliding *ngFor="let list of todosService.list">
+                      class="animated fadeInDown">
+  <ion-item color="dark"
+            (click)="selectedList( list )">
     <ion-label>
-      {{ lists.title }}
+      {{ list.title }}
     </ion-label>
-    <ion-note slot="end" color="tertiary">{{ lists.items.length }} items</ion-note>
+    <ion-note slot="end" color="tertiary">{{ list.items.length }} items</ion-note>
   </ion-item>
+  <ion-item-options side="end">
+    <ion-item-option (click)="deleteList( list )"
+                     color="danger">
+      <ion-icon name="close" slot="=icon-only"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+  </ion-item-sliding>
 </ion-list>

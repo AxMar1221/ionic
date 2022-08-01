@@ -22,4 +22,8 @@ export class ListsComponent {
       this.router.navigateByUrl(`/tabs/tab1/add/${ list.id }`);
     }
   }
+
+  deleteList( list: List ) {
+    this.todosService.deleteList( list );
+  }
 }

@@ -20,6 +20,11 @@ export class TodosService {
     return newList.id;
   }
 
+  deleteList( list: List ) {
+    this.list = this.list.filter( dataList => dataList.id !== list.id);
+    this.saveStorage();
+  }
+
   getList( id: string |  number ) {
     id = Number(id);
     return this.list.find( listData => listData.id === id );
