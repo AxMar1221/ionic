@@ -1,7 +1,6 @@
 
 <ion-list color="dark">
-  <ion-item-sliding *ngFor="let list of todosService.list"
-                      class="animated fadeInDown">
+  <ion-item-sliding *ngFor="let list of todosService.list | filter:done">
   <ion-item color="dark"
             (click)="selectedList( list )">
     <ion-label>
