@@ -8,10 +8,16 @@
     </ion-label>
     <ion-note slot="end" color="tertiary">{{ list.items.length }} items</ion-note>
   </ion-item>
+  <ion-item-options side="start">
+    <ion-item-option (click)="editList( list )">
+      <ion-icon name="create" slot="icon-only"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
   <ion-item-options side="end">
     <ion-item-option (click)="deleteList( list )"
                      color="danger">
-      <ion-icon name="close" slot="=icon-only"></ion-icon>
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+
     </ion-item-option>
   </ion-item-options>
   </ion-item-sliding>

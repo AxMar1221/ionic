@@ -14,7 +14,6 @@ export class List {
         this.createdDay = new Date();
         this.done = false;
         this.items = [];
-
         this.id = new Date().getTime();
     }
 }

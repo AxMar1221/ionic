@@ -16,7 +16,6 @@ export class TodosService {
     const newList = new List(title);
     this.list.push( newList );
     this.saveStorage();
-
     return newList.id;
   }
 
