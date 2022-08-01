@@ -30,9 +30,10 @@
                       class="animated fadeInDown">
       <ion-item color="dark">
       <ion-checkbox color="danger"
-      slot="start"
-      [(ngModel)]="item.complete"
-      (ionChange)="changeCheck( item )"></ion-checkbox>
+                    slot="start"
+                    [(ngModel)]="item.complete"
+                    (ionChange)="changeCheck( item )">
+      </ion-checkbox>
       <ion-label>{{ item.desc }}</ion-label> 
     </ion-item>
       <ion-item-options side="end">
