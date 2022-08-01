@@ -1,3 +1,12 @@
-<h3>
-  lists works!
-</h3>
+
+<ion-list color="dark">
+  <ion-item *ngFor="let lists of todosService.list; let i = index"
+            class="animated fadeInDown"
+            color="dark"
+            (click)="selectedList( lists )">
+    <ion-label>
+      {{ lists.title }}
+    </ion-label>
+    <ion-note slot="end" color="tertiary">{{ lists.items.length }} items</ion-note>
+  </ion-item>
+</ion-list>
